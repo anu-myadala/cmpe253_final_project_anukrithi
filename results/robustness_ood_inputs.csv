@@ -1,0 +1,13 @@
+input,gain_share
+loan_amount,0.3320
+combined_loan_to_value_ratio,0.1136
+property_value,0.0950
+income,0.0931
+conforming_loan_limit,0.0924
+aus-1,0.0885
+applicant_credit_score_type,0.0714
+debt_to_income_ratio,0.0476
+co-applicant_credit_score_type,0.0243
+submission_of_application,0.0203
+loan_term,0.0166
+co_applicant_present,0.0052

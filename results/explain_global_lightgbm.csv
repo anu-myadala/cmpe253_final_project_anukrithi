@@ -1,0 +1,13 @@
+input,mean_abs_shap,rank,share
+debt_to_income_ratio,0.42976,1,0.20441
+property_value,0.32427,2,0.15423
+submission_of_application,0.22921,3,0.10902
+loan_amount,0.19849,4,0.09441
+aus-1,0.19740,5,0.09389
+co_applicant_present,0.17335,6,0.08245
+combined_loan_to_value_ratio,0.14677,7,0.06981
+co-applicant_credit_score_type,0.14050,8,0.06683
+income,0.12349,9,0.05874
+applicant_credit_score_type,0.11402,10,0.05423
+conforming_loan_limit,0.01606,11,0.00764
+loan_term,0.00914,12,0.00435

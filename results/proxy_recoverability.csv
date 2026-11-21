@@ -1,0 +1,5 @@
+target,tract_proxies,recover_auc,n_test
+Black vs White,off,0.6694,16746
+Hispanic vs not Hispanic,off,0.7805,26986
+Black vs White,on,0.7660,16746
+Hispanic vs not Hispanic,on,0.8274,26986

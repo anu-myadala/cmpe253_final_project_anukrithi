@@ -1,0 +1,5 @@
+quasi_identifiers,n_records,share_unique,share_in_class_smaller_than_5,median_class_size
+county_code + loan_amount + income,174655,0.6163,0.9475,1.0000
+county_code + loan_amount + income + applicant_age + derived_sex,174655,0.9227,0.9999,1.0000
+county_code + loan_amount + income + applicant_age + derived_sex + lei,174655,0.9934,1.0000,1.0000
+county_code + loan_amount + income + applicant_age + derived_sex + lei + property_value,174655,0.9979,1.0000,1.0000

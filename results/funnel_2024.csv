@@ -1,0 +1,11 @@
+step,rows
+raw download,297908
+"action_taken in {originated, denied}",297908
+loan_type in ['1'],236071
+occupancy_type in ['1'],198545
+lien_status in ['1'],187378
+reverse_mortgage in ['2'],186372
+open-end_line_of_credit in ['2'],185385
+business_or_commercial_purpose in ['2'],185073
+construction_method in ['1'],174657
+"total_units in ['1', '2', '3', '4']",174655

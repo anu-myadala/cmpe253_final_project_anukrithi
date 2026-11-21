@@ -1,0 +1,20 @@
+model,principal_driver,share_of_denials,reg_b_status,reason
+logistic_regression,debt_to_income_ratio,0.8648,standard,Excessive obligations in relation to income
+logistic_regression,applicant_credit_score_type,0.0702,non-standard,"Credit-history related (scoring model used) - the score itself must be disclosed, the model type is not a reason"
+logistic_regression,co_applicant_present,0.0569,process,No standard reason - presence of a co-applicant; review before use
+logistic_regression,co-applicant_credit_score_type,0.0040,non-standard,Credit-history related (co-applicant scoring model used) - not itself a reason
+logistic_regression,combined_loan_to_value_ratio,0.0020,standard,Value or type of collateral not sufficient / insufficient down payment
+logistic_regression,aus-1,0.0017,process,"Automated underwriting system used - the AUS findings, not the system name, must be translated into reasons"
+logistic_regression,conforming_loan_limit,0.0003,non-standard,No standard reason code - amount outside the conforming limit
+lightgbm,debt_to_income_ratio,0.5401,standard,Excessive obligations in relation to income
+lightgbm,aus-1,0.1627,process,"Automated underwriting system used - the AUS findings, not the system name, must be translated into reasons"
+lightgbm,property_value,0.0933,standard,Value or type of collateral not sufficient
+lightgbm,loan_amount,0.0638,standard,Value or type of collateral not sufficient (amount requested vs collateral)
+lightgbm,combined_loan_to_value_ratio,0.0579,standard,Value or type of collateral not sufficient / insufficient down payment
+lightgbm,applicant_credit_score_type,0.0340,non-standard,"Credit-history related (scoring model used) - the score itself must be disclosed, the model type is not a reason"
+lightgbm,income,0.0311,standard,Income insufficient for amount of credit requested
+lightgbm,loan_term,0.0111,non-standard,No standard reason code - loan term requested; explain in plain language
+lightgbm,submission_of_application,0.0036,process,Process attribute (direct vs broker submission) - should not drive a denial
+lightgbm,co_applicant_present,0.0016,process,No standard reason - presence of a co-applicant; review before use
+lightgbm,conforming_loan_limit,0.0003,non-standard,No standard reason code - amount outside the conforming limit
+lightgbm,co-applicant_credit_score_type,0.0003,non-standard,Credit-history related (co-applicant scoring model used) - not itself a reason

@@ -1,0 +1,3 @@
+model,n_denied_by_model,principal_driver_standard_reason,both_top2_standard_reason,principal_driver_process_input
+logistic_regression,3004,0.8668,0.0243,0.0586
+lightgbm,3055,0.7863,0.4223,0.1679

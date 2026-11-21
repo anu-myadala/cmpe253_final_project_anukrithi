@@ -1,0 +1,27 @@
+attribute,group,n,approval_rate,share,flag_small
+derived_race,2 or more minority races,489,0.8671,0.0030,False
+derived_race,American Indian or Alaska Native,1040,0.9115,0.0063,False
+derived_race,Asian,37090,0.9197,0.2245,False
+derived_race,Black or African American,3685,0.8543,0.0223,False
+derived_race,Free Form Text Only,25,0.7600,0.0002,True
+derived_race,Joint,7016,0.9418,0.0425,False
+derived_race,Native Hawaiian or Other Pacific Islander,402,0.9030,0.0024,False
+derived_race,Race Not Available,36165,0.9056,0.2189,False
+derived_race,White,79286,0.9191,0.4799,False
+derived_ethnicity,Ethnicity Not Available,30556,0.9092,0.1850,False
+derived_ethnicity,Free Form Text Only,84,0.9286,0.0005,True
+derived_ethnicity,Hispanic or Latino,28151,0.8913,0.1704,False
+derived_ethnicity,Joint,7549,0.9310,0.0457,False
+derived_ethnicity,Not Hispanic or Latino,98858,0.9232,0.5984,False
+derived_sex,Female,31717,0.9041,0.1920,False
+derived_sex,Joint,71839,0.9327,0.4349,False
+derived_sex,Male,49822,0.9020,0.3016,False
+derived_sex,Sex Not Available,11820,0.8995,0.0716,False
+applicant_age,25-34,45744,0.9242,0.2769,False
+applicant_age,35-44,55620,0.9205,0.3367,False
+applicant_age,45-54,30611,0.9059,0.1853,False
+applicant_age,55-64,17833,0.9027,0.1079,False
+applicant_age,65-74,8743,0.9148,0.0529,False
+applicant_age,<25,3588,0.8852,0.0217,False
+applicant_age,>74,2815,0.9098,0.0170,False
+applicant_age,Missing,244,0.8689,0.0015,False

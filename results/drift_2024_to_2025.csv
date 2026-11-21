@@ -1,0 +1,8 @@
+feature,psi,ks,median_2024,median_2025,psi_flag
+loan_amount,0.0157,0.0386,605000.0000,615000.0000,stable
+income,0.0032,0.0194,191.0000,196.0000,stable
+combined_loan_to_value_ratio,0.0010,0.0085,80.0000,80.0000,stable
+property_value,0.0018,0.0167,795000.0000,805000.0000,stable
+loan_term,0.0017,0.0063,360.0000,360.0000,stable
+score_logistic_regression,0.0028,0.0204,0.9506,0.9499,stable
+score_lightgbm,0.0036,0.0229,0.9603,0.9590,stable

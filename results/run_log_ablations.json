@@ -1,0 +1,42 @@
+{
+  "group_attr": "derived_race",
+  "seed": 42,
+  "variants": [
+    "baseline",
+    "reweighing",
+    "eo_postprocess",
+    "reductions",
+    "reductions_rethreshold",
+    "proxy_features"
+  ],
+  "reductions": {
+    "constraint": "demographic_parity",
+    "eps": 0.01,
+    "max_iter": 50
+  },
+  "eo_postprocess": {
+    "constraint": "equalized_odds",
+    "objective": "balanced_accuracy_score"
+  },
+  "collapsed_groups": [
+    "Free Form Text Only"
+  ],
+  "timings": {
+    "logistic_regression/baseline": 0.5,
+    "logistic_regression/reweighing": 0.4,
+    "logistic_regression/eo_postprocess": 0.6,
+    "logistic_regression/reductions/oracle_calls": 62,
+    "logistic_regression/reductions": 29.6,
+    "logistic_regression/reductions_rethreshold": 0.0,
+    "logistic_regression/proxy_features": 0.3,
+    "lightgbm/baseline": 3.5,
+    "lightgbm/reweighing": 3.4,
+    "lightgbm/eo_postprocess": 1.3,
+    "lightgbm/reductions/oracle_calls": 33,
+    "lightgbm/reductions": 182.3,
+    "lightgbm/reductions_rethreshold": 0.0,
+    "lightgbm/proxy_features": 3.6
+  },
+  "wall_seconds": 293.0,
+  "finished": "2026-11-21 01:25:16"
+}

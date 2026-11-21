@@ -1,0 +1,16 @@
+{
+  "seed": 42,
+  "thresholds": {
+    "logistic_regression": 0.8932237276516249,
+    "lightgbm": 0.8576295922049152
+  },
+  "timings": {
+    "noise": 20.0,
+    "ood": 6.9,
+    "pgd": 0.3,
+    "gaming": 0.8
+  },
+  "domain_auc": 0.5877545335491495,
+  "wall_seconds": 33.6,
+  "finished": "2026-11-21 01:30:09"
+}

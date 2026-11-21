@@ -1,0 +1,25 @@
+model,case,row_in_test,score,threshold,actual_outcome,rank,input,value,shap_log_odds,adverse_action_reason,reason_status
+logistic_regression,lowest score,16385,0.0067,0.8932,denied,1,debt_to_income_ratio,>60%,-5.0854,Excessive obligations in relation to income,standard
+logistic_regression,lowest score,16385,0.0067,0.8932,denied,2,applicant_credit_score_type,11,-2.0896,"Credit-history related (scoring model used) - the score itself must be disclosed, the model type is not a reason",non-standard
+logistic_regression,lowest score,16385,0.0067,0.8932,denied,3,co_applicant_present,no,-0.4648,No standard reason - presence of a co-applicant; review before use,process
+logistic_regression,lowest score,16385,0.0067,0.8932,denied,4,aus-1,6,-0.3239,"Automated underwriting system used - the AUS findings, not the system name, must be translated into reasons",process
+logistic_regression,borderline (just below threshold),31029,0.8932,0.8932,originated,1,co_applicant_present,no,-0.4648,No standard reason - presence of a co-applicant; review before use,process
+logistic_regression,borderline (just below threshold),31029,0.8932,0.8932,originated,2,aus-1,6,-0.3239,"Automated underwriting system used - the AUS findings, not the system name, must be translated into reasons",process
+logistic_regression,borderline (just below threshold),31029,0.8932,0.8932,originated,3,submission_of_application,2,-0.2611,Process attribute (direct vs broker submission) - should not drive a denial,process
+logistic_regression,borderline (just below threshold),31029,0.8932,0.8932,originated,4,combined_loan_to_value_ratio,80.0,-0.0509,Value or type of collateral not sufficient / insufficient down payment,standard
+logistic_regression,random denied,3236,0.8118,0.8932,originated,1,debt_to_income_ratio,Missing,-0.8358,Excessive obligations in relation to income,standard
+logistic_regression,random denied,3236,0.8118,0.8932,originated,2,co_applicant_present,no,-0.4648,No standard reason - presence of a co-applicant; review before use,process
+logistic_regression,random denied,3236,0.8118,0.8932,originated,3,aus-1,6,-0.3239,"Automated underwriting system used - the AUS findings, not the system name, must be translated into reasons",process
+logistic_regression,random denied,3236,0.8118,0.8932,originated,4,submission_of_application,2,-0.2611,Process attribute (direct vs broker submission) - should not drive a denial,process
+lightgbm,lowest score,21863,0.0028,0.8576,denied,1,debt_to_income_ratio,>60%,-6.1809,Excessive obligations in relation to income,standard
+lightgbm,lowest score,21863,0.0028,0.8576,denied,2,income,42.0,-0.9411,Income insufficient for amount of credit requested,standard
+lightgbm,lowest score,21863,0.0028,0.8576,denied,3,property_value,455000.0,-0.4636,Value or type of collateral not sufficient,standard
+lightgbm,lowest score,21863,0.0028,0.8576,denied,4,co-applicant_credit_score_type,9,-0.4436,Credit-history related (co-applicant scoring model used) - not itself a reason,non-standard
+lightgbm,borderline (just below threshold),1715,0.8576,0.8576,originated,1,aus-1,6,-0.5607,"Automated underwriting system used - the AUS findings, not the system name, must be translated into reasons",process
+lightgbm,borderline (just below threshold),1715,0.8576,0.8576,originated,2,submission_of_application,2,-0.3455,Process attribute (direct vs broker submission) - should not drive a denial,process
+lightgbm,borderline (just below threshold),1715,0.8576,0.8576,originated,3,combined_loan_to_value_ratio,85.0,-0.3399,Value or type of collateral not sufficient / insufficient down payment,standard
+lightgbm,borderline (just below threshold),1715,0.8576,0.8576,originated,4,co_applicant_present,no,-0.3151,No standard reason - presence of a co-applicant; review before use,process
+lightgbm,random denied,26844,0.7632,0.8576,originated,1,property_value,205000.0,-1.3999,Value or type of collateral not sufficient,standard
+lightgbm,random denied,26844,0.7632,0.8576,originated,2,co_applicant_present,no,-0.3150,No standard reason - presence of a co-applicant; review before use,process
+lightgbm,random denied,26844,0.7632,0.8576,originated,3,submission_of_application,2,-0.2500,Process attribute (direct vs broker submission) - should not drive a denial,process
+lightgbm,random denied,26844,0.7632,0.8576,originated,4,combined_loan_to_value_ratio,95.0,-0.1936,Value or type of collateral not sufficient / insufficient down payment,standard

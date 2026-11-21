@@ -1,0 +1,11 @@
+model,resample,spearman_rho_vs_reference,top5_overlap,test_auc
+logistic_regression,1,0.9720,0.8000,0.7754
+logistic_regression,2,0.9650,1.0000,0.7765
+logistic_regression,3,0.9720,1.0000,0.7775
+logistic_regression,4,0.9510,0.8000,0.7768
+logistic_regression,5,0.9510,0.8000,0.7776
+lightgbm,1,1.0000,1.0000,0.7902
+lightgbm,2,0.8881,1.0000,0.7908
+lightgbm,3,0.9441,1.0000,0.7921
+lightgbm,4,0.9930,1.0000,0.7966
+lightgbm,5,0.9580,1.0000,0.7913

@@ -1,0 +1,11 @@
+model,k,auc_full,auc_without_top_k,drop_top_k,auc_without_random_k_mean,drop_random_k_mean,top_k_inputs
+logistic_regression,1,0.7775,0.7466,0.0309,0.7699,0.0075,co_applicant_present
+logistic_regression,2,0.7775,0.5792,0.1983,0.7665,0.0109,co_applicant_present; debt_to_income_ratio
+logistic_regression,3,0.7775,0.6167,0.1608,0.7272,0.0503,co_applicant_present; debt_to_income_ratio; co-applicant_credit_score_type
+logistic_regression,5,0.7775,0.5687,0.2087,0.6723,0.1052,co_applicant_present; debt_to_income_ratio; co-applicant_credit_score_type; submission_of_application; combined_loan_to_value_ratio
+logistic_regression,local-3,0.7775,,1.0727,,0.3538,mean |delta log-odds| when the row's own top-3 inputs (vs 3 random inputs) are set to the training median/mode
+lightgbm,1,0.8033,0.6739,0.1294,0.7906,0.0127,debt_to_income_ratio
+lightgbm,2,0.8033,0.6511,0.1522,0.7789,0.0244,debt_to_income_ratio; property_value
+lightgbm,3,0.8033,0.6314,0.1719,0.7704,0.0329,debt_to_income_ratio; property_value; submission_of_application
+lightgbm,5,0.8033,0.5915,0.2118,0.5848,0.2185,debt_to_income_ratio; property_value; submission_of_application; loan_amount; aus-1
+lightgbm,local-3,0.8033,,1.1722,,0.6474,mean |delta log-odds| when the row's own top-3 inputs (vs 3 random inputs) are set to the training median/mode

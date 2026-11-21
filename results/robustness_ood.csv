@@ -1,0 +1,2 @@
+domain_classifier,n_2024_test,n_2025_sample,domain_auc,top_separating_inputs
+"LightGBM 200 trees, 5-fold CV",34931,34931,0.5878,loan_amount (0.33); combined_loan_to_value_ratio (0.11); property_value (0.10); income (0.09); conforming_loan_limit (0.09)

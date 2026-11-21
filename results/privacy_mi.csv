@@ -1,0 +1,5 @@
+model,attack,attack_auc,ci_lo,ci_hi,best_advantage_tpr_minus_fpr,n_members,n_non_members,train_auc_minus_test_auc,train_acc_minus_test_acc
+logistic_regression,confidence in true label,0.4982,0.4941,0.5023,0.0028,34931,34931,0.0032,0.0026
+logistic_regression,shadow model + attack classifier,0.5025,0.4979,0.5065,0.0072,34931,34931,0.0032,0.0026
+lightgbm,confidence in true label,0.5101,0.5055,0.5142,0.0179,34931,34931,0.1220,0.0195
+lightgbm,shadow model + attack classifier,0.5244,0.5201,0.5292,0.0351,34931,34931,0.1220,0.0195

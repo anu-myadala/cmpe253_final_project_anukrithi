@@ -1,0 +1,23 @@
+attribute,group,n_group,n_reference,min_detectable_gap_80pct_power
+derived_race,Asian,8750,15936,0.0104
+derived_race,Race Not Available,7572,15936,0.0110
+derived_race,Joint,1471,15936,0.0214
+derived_race,Black or African American,810,15936,0.0283
+derived_race,American Indian or Alaska Native,195,15936,0.0566
+derived_race,2 or more minority races,96,15936,0.0804
+derived_race,Native Hawaiian or Other Pacific Islander,95,15936,0.0808
+derived_race,Free Form Text Only,6,15936,0.3206
+derived_ethnicity,Ethnicity Not Available,6470,21001,0.0112
+derived_ethnicity,Hispanic or Latino,5985,21001,0.0115
+derived_ethnicity,Joint,1455,21001,0.0213
+derived_ethnicity,Free Form Text Only,20,21001,0.1757
+derived_sex,Joint,15099,10695,0.0099
+derived_sex,Female,6760,10695,0.0122
+derived_sex,Sex Not Available,2377,10695,0.0178
+applicant_age,25-34,10231,11794,0.0106
+applicant_age,45-54,6364,11794,0.0122
+applicant_age,55-64,3613,11794,0.0149
+applicant_age,65-74,1676,11794,0.0205
+applicant_age,<25,782,11794,0.0290
+applicant_age,>74,449,11794,0.0378
+applicant_age,Missing,22,11794,0.1676

@@ -1,0 +1,12 @@
+{
+  "seed": 42,
+  "n_test": 34931,
+  "timings": {
+    "logistic_regression/shap": 0.5,
+    "logistic_regression": 4.8,
+    "lightgbm/shap": 102.1,
+    "lightgbm": 248.6
+  },
+  "wall_seconds": 255.0,
+  "finished": "2026-11-21 01:29:33"
+}

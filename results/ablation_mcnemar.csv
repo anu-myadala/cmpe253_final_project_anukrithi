@@ -1,0 +1,12 @@
+model,a,b,b_a_right_b_wrong,c_a_wrong_b_right,chi2,p,test
+logistic_regression,baseline,reweighing,41,37,0.1154,0.7341,chi2_cc
+logistic_regression,baseline,eo_postprocess,1637,1102,104.1,0,chi2_cc
+logistic_regression,baseline,reductions,632,1369,270.7,0,chi2_cc
+logistic_regression,baseline,reductions_rethreshold,463,1278,380.6,0,chi2_cc
+logistic_regression,baseline,proxy_features,171,174,0.01159,0.9143,chi2_cc
+lightgbm,baseline,reweighing,246,272,1.207,0.272,chi2_cc
+lightgbm,baseline,eo_postprocess,1566,635,393,0,chi2_cc
+lightgbm,baseline,reductions,399,1332,501.8,0,chi2_cc
+lightgbm,baseline,reductions_rethreshold,640,1223,181.8,0,chi2_cc
+lightgbm,baseline,proxy_features,538,604,3.7,0.05442,chi2_cc
+both,logistic_regression,lightgbm,897,1118,24.02,9.535e-07,chi2_cc

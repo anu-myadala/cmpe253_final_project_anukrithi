@@ -1,0 +1,5 @@
+group,reference,n,base_rate,small,selection_rate,tpr,fpr,precision,gap_selection_rate,ci_lo_selection_rate,ci_hi_selection_rate,z_selection_rate,p_selection_rate,gap_tpr,ci_lo_tpr,ci_hi_tpr,z_tpr,p_tpr,gap_fpr,ci_lo_fpr,ci_hi_fpr,z_fpr,p_fpr,gap_precision,ci_lo_precision,ci_hi_precision,z_precision,p_precision,adverse_impact_ratio
+Joint,Male,15099,0.9260,False,0.9344,0.9649,0.5528,0.9562,0.0411,0.0342,0.0482,11.3978,0.0000,0.0295,0.0239,0.0350,9.9979,0.0000,0.0466,0.0024,0.0871,2.1730,0.0298,0.0118,0.0060,0.0174,4.0472,0.0001,1.0460
+Male,Male,10695,0.9019,False,0.8933,0.9354,0.5062,0.9444,,,,,,,,,,,,,,,,,,,,,
+Female,Male,6760,0.9095,False,0.9024,0.9366,0.5588,0.9439,0.0091,0.0007,0.0174,1.9324,0.0533,0.0012,-0.0059,0.0088,0.2884,0.7730,0.0526,0.0034,0.1017,2.0784,0.0377,-0.0005,-0.0081,0.0065,-0.1293,0.8971,1.0101
+Sex Not Available,Male,2377,0.9062,False,0.9083,0.9494,0.5112,0.9472,0.0150,0.0013,0.0271,2.2584,0.0239,0.0140,0.0033,0.0242,2.6161,0.0089,0.0050,-0.0676,0.0774,0.1360,0.8918,0.0028,-0.0083,0.0125,0.5187,0.6040,1.0168

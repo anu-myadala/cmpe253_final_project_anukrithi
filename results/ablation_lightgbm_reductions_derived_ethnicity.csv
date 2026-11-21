@@ -1,0 +1,6 @@
+group,reference,n,base_rate,small,selection_rate,tpr,fpr,precision,gap_selection_rate,ci_lo_selection_rate,ci_hi_selection_rate,z_selection_rate,p_selection_rate,gap_tpr,ci_lo_tpr,ci_hi_tpr,z_tpr,p_tpr,gap_fpr,ci_lo_fpr,ci_hi_fpr,z_fpr,p_fpr,gap_precision,ci_lo_precision,ci_hi_precision,z_precision,p_precision,adverse_impact_ratio
+Not Hispanic or Latino,Not Hispanic or Latino,21001,0.9211,False,0.9650,0.9936,0.6315,0.9483,,,,,,,,,,,,,,,,,,,,,
+Ethnicity Not Available,Not Hispanic or Latino,6470,0.9051,False,0.9592,0.9954,0.6140,0.9393,-0.0058,-0.0113,-0.0006,-2.0979,0.0359,0.0018,-0.0002,0.0039,1.7061,0.0880,-0.0175,-0.0643,0.0299,-0.7618,0.4462,-0.0091,-0.0156,-0.0022,-2.6661,0.0077,0.9940
+Hispanic or Latino,Not Hispanic or Latino,5985,0.8926,False,0.9522,0.9936,0.6081,0.9314,-0.0128,-0.0190,-0.0072,-4.2135,0.0000,0.0000,-0.0024,0.0024,0.0373,0.9702,-0.0234,-0.0696,0.0209,-1.0350,0.3007,-0.0169,-0.0242,-0.0099,-4.5899,0.0000,0.9867
+Joint,Not Hispanic or Latino,1455,0.9402,False,0.9704,0.9942,0.5977,0.9632,0.0054,-0.0039,0.0142,1.1793,0.2383,0.0006,-0.0040,0.0043,0.2629,0.7926,-0.0338,-0.1439,0.0718,-0.6269,0.5307,0.0148,0.0033,0.0247,2.8271,0.0047,1.0056
+Free Form Text Only,Not Hispanic or Latino,20,1.0000,True,1.0000,1.0000,,1.0000,0.0350,0.0325,0.0375,27.5981,0.0000,0.0064,0.0054,0.0076,11.1714,0.0000,,,,,,0.0517,0.0487,0.0548,33.2271,0.0000,1.0363

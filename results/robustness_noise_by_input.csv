@@ -1,0 +1,11 @@
+model,input,noise_sd_units,flip_rate,share_of_rows_at_modal_value
+logistic_regression,loan_amount,0.1000,0.0010,0.0289
+logistic_regression,income,0.1000,0.0001,0.0060
+logistic_regression,combined_loan_to_value_ratio,0.1000,0.0024,0.2440
+logistic_regression,property_value,0.1000,0.0000,0.0131
+logistic_regression,loan_term,0.1000,0.0001,0.9776
+lightgbm,loan_amount,0.1000,0.0189,0.0289
+lightgbm,income,0.1000,0.0257,0.0060
+lightgbm,combined_loan_to_value_ratio,0.1000,0.0669,0.2440
+lightgbm,property_value,0.1000,0.0362,0.0131
+lightgbm,loan_term,0.1000,0.0496,0.9776
