@@ -1,0 +1,9 @@
+# raw HMDA downloads and cleaned parquet files are re-created by `make download prepare`
+data/
+# run logs
+results/*.log
+.venv/
+__pycache__/
+# instructor's course-plan document, not part of the project
+course_plan.*
+.DS_Store

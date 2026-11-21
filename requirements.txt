@@ -1,0 +1,14 @@
+# Pinned to the versions used for the reported runs (checklist: "dependencies pinned").
+pandas==3.0.2
+numpy==2.4.4
+scikit-learn==1.8.0
+lightgbm==4.7.0
+pyarrow==25.0.1
+scipy==1.17.1
+matplotlib==3.10.9
+PyYAML==6.0.3
+dp-accounting==0.7.0
+fairlearn==0.15.0
+shap==0.54.1
+streamlit==1.65.0
+altair==6.3.0
