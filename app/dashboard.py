@@ -61,7 +61,8 @@ st.caption("CMPE 253 (AI Threat Intelligence), Track B - Anukrithi Myadala, SJSU
            f"California conventional home-purchase applications, {CFG['years']['train_test']} development year, "
            f"{CFG['years']['drift']} held out for drift. Sensitive attributes are evaluation-only; seed {CFG['seed']}.")
 
-tabs = st.tabs(["Overview", "Fairness", "Interventions", "Explainability", "Robustness", "Privacy", "Drift", "Leakage audit", "What-if scorer", "Model card"])
+tabs = st.tabs(["Overview", "Fairness", "Interventions", "Explainability", "Robustness", "Privacy", "Drift", "Leakage audit", "What-if scorer",
+                "Statistical rigor", "Adversarial debiasing", "Human + AI", "Recourse", "Hardening", "Risk register", "Model card"])
 
 # ---------------------------------------------------------------- Overview
 with tabs[0]:
@@ -255,6 +256,28 @@ with tabs[8]:
             phi, _ = shap_values(m, clf, X, Xtr_mean)
             contrib = aggregate(phi, names, (num, cat)).iloc[0].sort_values()
             neg = contrib[contrib < 0].head(4)
+            if p < thr:
+                best = None
+                dti_order = ["<20%", "20%-<30%", "30%-<36%", "36%-49%", "50%-60%", ">60%"]
+                for inc in [0, 5, 10, 15, 20, 25, 30]:
+                    for loan in [0, 5, 10, 15, 20, 25, 30]:
+                        for k in [0, 1, 2]:
+                            cost = inc / 10 + loan / 10 + 1.5 * k
+                            if cost == 0 or (best and cost >= best[0]):
+                                continue
+                            e = row.copy()
+                            e["income"] = e["income"] * (1 + inc / 100)
+                            e["loan_amount"] = e["loan_amount"] * (1 - loan / 100)
+                            e["combined_loan_to_value_ratio"] = e["combined_loan_to_value_ratio"] * (1 - loan / 100)
+                            v = str(e["debt_to_income_ratio"].iloc[0])
+                            if k and v in dti_order:
+                                e["debt_to_income_ratio"] = pd.Categorical([dti_order[max(dti_order.index(v) - k, 0)]],
+                                                                           categories=train["debt_to_income_ratio"].cat.categories)
+                            Xe = pre.transform(e[num + cat]); Xe = np.asarray(Xe.todense()) if hasattr(Xe, "todense") else np.asarray(Xe)
+                            if float(clf.predict_proba(Xe)[0, 1]) >= thr:
+                                best = (cost, inc, loan, k)
+                st.markdown("Cheapest recourse inside the box: " + (f"income +{best[1]}%, loan amount -{best[2]}%, DTI {best[3]} bin(s) lower "
+                            f"(effort {best[0]:.1f})" if best else "none within +30% income / -30% loan / 2 DTI bins"))
             if len(neg):
                 st.dataframe(pd.DataFrame({"input": neg.index, "shap_log_odds": neg.values.round(3),
                                            "adverse_action_reason": [ADVERSE_ACTION.get(i, ("No mapping", ""))[0] for i in neg.index],
@@ -262,7 +285,70 @@ with tabs[8]:
     else:
         st.info("data/clean parquet not found - run `make prepare` first.")
 
-# ---------------------------------------------------------------- Model card
+# ---------------------------------------------------------------- Statistical rigor
 with tabs[9]:
+    st.caption("10 different split seeds (mean and 95% t-interval), DeLong AUC test, Holm / Benjamini-Hochberg correction of every gap test, "
+               "and a lender-holdout split where no test lender was seen in training.")
+    rs = load("rigor_repeated_summary.csv")
+    if rs is not None:
+        st.subheader("Across 10 split seeds")
+        st.dataframe(rs[rs.metric.isin(["auc", "balanced_accuracy", "Black_sel_gap", "Hispanic_sel_gap", "Black_tpr_gap", "Hispanic_tpr_gap"])].round(4),
+                     hide_index=True, width="stretch")
+    dl = load("rigor_delong.csv")
+    if dl is not None:
+        st.subheader("Is LightGBM really better? (DeLong and paired t over seeds)"); st.dataframe(dl, hide_index=True, width="stretch")
+    mt = load("rigor_multiple_testing.csv")
+    if mt is not None:
+        st.subheader(f"Multiple testing: {len(mt)} gap tests - significant raw {int(mt.sig_raw.sum())}, BH {int(mt.sig_bh.sum())}, Holm {int(mt.sig_holm.sum())}")
+        st.dataframe(mt.round(5), hide_index=True, width="stretch")
+    lh = load("rigor_lender_holdout.csv")
+    if lh is not None:
+        st.subheader("Group-aware split: unseen lenders"); st.dataframe(lh.round(4), hide_index=True, width="stretch")
+
+# ---------------------------------------------------------------- Adversarial debiasing
+with tabs[10]:
+    st.caption("In-processing (Zhang et al. 2018): the logistic model trains against an adversary that tries to recover whether the applicant is "
+               "Black or Hispanic from its score; race is used only in training, never at decision time.")
+    image("adv_debias.png")
+    ad = load("adv_debias.csv")
+    if ad is not None:
+        st.dataframe(ad.round(4), hide_index=True, width="stretch")
+
+# ---------------------------------------------------------------- Human + AI
+with tabs[11]:
+    st.caption("Calibration by group, and a human-in-the-loop policy: the model abstains on the applications closest to its threshold.")
+    image("human_ai_reliability.png"); image("human_ai_routing.png")
+    for f in ["human_ai_calibration.csv", "human_ai_routing.csv"]:
+        d = load(f)
+        if d is not None:
+            st.dataframe(d.round(4), hide_index=True, width="stretch")
+
+# ---------------------------------------------------------------- Recourse
+with tabs[12]:
+    st.caption("Cheapest actionable change (income up, loan amount down, DTI bin down) that turns each denial into an approval, by group.")
+    image("recourse_cost.png")
+    rc = load("recourse_by_group.csv")
+    if rc is not None:
+        st.dataframe(rc.round(3), hide_index=True, width="stretch")
+
+# ---------------------------------------------------------------- Hardening
+with tabs[13]:
+    st.caption("LightGBM's decisions flipped under small input errors because it keyed on exact values (360-month term, 80% CLTV). "
+               "Monotone constraints, regularisation and noise augmentation fix most of it.")
+    image("hardening.png")
+    hd = load("hardening.csv")
+    if hd is not None:
+        st.dataframe(hd.round(4), hide_index=True, width="stretch")
+
+# ---------------------------------------------------------------- Risk register
+with tabs[14]:
+    st.caption("Initial-report register (R1-R8) plus risks found in testing (R9-R11), with measured evidence, MITRE ATLAS / NIST AI RMF mapping "
+               "and proposed residual scores (1-5 Low, 6-10 Medium, 11-15 High, 16-25 Critical).")
+    rr = load("risk_register_measured.csv")
+    if rr is not None:
+        st.dataframe(rr, hide_index=True, width="stretch")
+
+# ---------------------------------------------------------------- Model card
+with tabs[15]:
     mc = ROOT / "docs" / "model_card.md"
     st.markdown(mc.read_text() if mc.exists() else "docs/model_card.md not found - run `python src/make_docs.py`.")

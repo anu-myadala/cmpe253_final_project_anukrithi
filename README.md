@@ -13,7 +13,7 @@ data; no live system is touched. Sensitive attributes are evaluation-only, never
 python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -r requirements.txt                        # pinned versions
 make download        # 1. pull the 2024 and 2025 CSVs from the CFPB Data Browser API (state-wide, minutes)
-make all             # 2. prepare -> leakage audit -> baselines -> drift -> DP pilot -> ablations -> explain -> robustness -> privacy -> extras -> docs
+make all             # 2. every stage in order (prepare ... risk register -> docs), about 20 minutes on a 2-core machine
 make dashboard       # 4. demo: streamlit app over results/ (plus a what-if scorer)
 ```
 
@@ -44,6 +44,13 @@ Smoke test without the real data (numbers are meaningless, never report them): `
 | `robustness.py` | robustness: perturbation, OOD, adversarial | `robustness_noise*.csv/png`, `robustness_ood*.csv`, `robustness_pgd.csv`, `robustness_gaming.csv` |
 | `dp_pilot.py`, `privacy.py` | privacy: ε and leakage probe | `dp_pilot.csv`, `privacy_mi.csv`, `privacy_dp_grid.csv`, `privacy_dp_fairness.csv`, `privacy_uniqueness.csv`, `privacy_dp.png` |
 | `extras.py` | explainability + fairness: reason coverage, proxy recoverability | `reason_coverage.csv`, `reason_coverage_drivers.csv`, `proxy_recoverability.csv` |
+| `rigor.py` | statistical rigor, evaluation design | `rigor_repeated_*.csv` (10 split seeds), `rigor_delong.csv`, `rigor_multiple_testing.csv` (Holm / BH), `rigor_lender_holdout.csv`, `rigor_duplicates.csv`, `manifest.json` |
+| `adv_debias.py` | fairness: in-processing | `adv_debias.csv/png` — adversarial debiasing (Zhang et al. 2018) in NumPy |
+| `human_ai.py` | human oversight, calibration | `human_ai_calibration.csv`, `human_ai_routing.csv`, reliability and routing plots |
+| `recourse.py` | explainability: counterfactuals, fairness of recourse | `recourse_by_group.csv`, `recourse_applicants.csv`, `recourse_cost.png` |
+| `hardening.py` | robustness fix | `hardening.csv/png` — monotone, regularised, noise-augmented LightGBM |
+| `xai_lime.py` | explainability: second local method | `xai_lime_agreement.csv`, `xai_lime_summary.csv` |
+| `risk_register.py` | governance | `risk_register_measured.csv` — R1–R11 with evidence, MITRE ATLAS / NIST AI RMF mapping, proposed residual scores |
 | `make_docs.py` | documentation | `docs/model_card.md`, `docs/datasheet.md` |
 | `app/dashboard.py` | demo | Streamlit dashboard over `results/` |
 
@@ -65,6 +72,13 @@ src/robustness.py      noise perturbation, adversarial validation (OOD), PGD + t
 src/dp_pilot.py        DP-SGD logistic regression over the ε grid with an RDP accountant + MI probe (pilot)
 src/privacy.py         membership-inference probes (confidence, shadow model), DP grid over seeds with fairness, record uniqueness
 src/extras.py          Reg. B reason coverage of model denials; race / ethnicity recoverability with and without tract proxies
+src/rigor.py           10 split seeds, DeLong, Holm / BH, unseen-lender split, duplicate check, data manifest
+src/adv_debias.py      adversarial debiasing (in-processing) in NumPy
+src/human_ai.py        calibration by group, abstain-to-human routing
+src/recourse.py        counterfactual recourse and recourse gaps by group
+src/hardening.py       hardened LightGBM vs realistic input errors and gaming
+src/xai_lime.py        LIME vs SHAP agreement
+src/risk_register.py   measured risk register with MITRE ATLAS / NIST AI RMF mapping
 src/make_docs.py       model card and datasheet generated from results/
 src/make_fixture.py    synthetic LAR-layout file for smoke tests only
 app/dashboard.py       Streamlit demo

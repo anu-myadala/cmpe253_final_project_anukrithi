@@ -96,8 +96,10 @@ def main():
         if gaming is not None:
             for m in base.index:
                 g = gaming[(gaming.model == m) & (gaming.manipulation == "income over-stated")]
-                out.append(f"- {m.replace('_', ' ')}: share of model-denied applications flipped by an income over-statement of +10 % / +20 % / +50 %: " +
-                           " / ".join(f"{100 * v:.1f} %" for v in g['flipped_to_approve_share'].values[1:4]))
+                for handling, lab in [("DTI bin held fixed", "DTI bin held fixed"), ("DTI bin moved", "DTI bin moved with income")]:
+                    gg = g[g.dti_handling.astype(str).str.startswith(handling)].set_index("change")["flipped_to_approve_share"]
+                    out.append(f"- {m.replace('_', ' ')}: share of model-denied applications flipped by an income over-statement of +10 % / +20 % / +50 % ({lab}): " +
+                               " / ".join(f"{100 * gg.get(c, float('nan')):.1f} %" for c in ["+10 %", "+20 %", "+50 %"]))
         if drift_perf is not None:
             for _, r in drift_perf.iterrows():
                 out.append(f"- Drift {Y} -> {YD}, {r['model'].replace('_', ' ')} at the frozen threshold: AUC {r['auc_2024_test']:.3f} -> {r['auc_2025']:.3f}, selection rate {r['selection_rate_2024_test']:.3f} -> {r['selection_rate_2025']:.3f}")
@@ -115,6 +117,44 @@ def main():
         if sanity is not None:
             out.append("- Label-shuffle sanity check (mean of 3 permutations): " + "; ".join(f"{r['model'].replace('_', ' ')} AUC {r['auc_real_labels']:.3f} -> {r['auc_shuffled_labels_mean']:.3f} +- {r['auc_shuffled_labels_sd']:.3f} on shuffled labels, total |SHAP| mass {r['total_mean_abs_shap_real']:.2f} -> {r['total_mean_abs_shap_shuffled_mean']:.2f}, importance rank correlation {r['spearman_rho_shuffled_vs_real_mean']:.2f}" for _, r in sanity.iterrows()))
         return "\n".join(out) if out else "_run `make explain`_"
+
+    def extra_lines():
+        out = []
+        rs = csv("rigor_repeated_summary.csv")
+        if rs is not None:
+            for m in base.index:
+                g = rs[rs.model == m].set_index("metric")
+                out.append(f"- {m.replace('_', ' ')} over 10 split seeds (mean [95% CI]): AUC {g.loc['auc', 'mean']:.3f} [{g.loc['auc', 'ci_lo']:.3f}, {g.loc['auc', 'ci_hi']:.3f}]; "
+                           f"Black-White selection gap {100 * g.loc['Black_sel_gap', 'mean']:+.1f} pp [{100 * g.loc['Black_sel_gap', 'ci_lo']:+.1f}, {100 * g.loc['Black_sel_gap', 'ci_hi']:+.1f}]; "
+                           f"Hispanic gap {100 * g.loc['Hispanic_sel_gap', 'mean']:+.1f} pp [{100 * g.loc['Hispanic_sel_gap', 'ci_lo']:+.1f}, {100 * g.loc['Hispanic_sel_gap', 'ci_hi']:+.1f}]")
+        dl = csv("rigor_delong.csv")
+        if dl is not None:
+            r = dl.iloc[2]
+            out.append(f"- LightGBM - LR AUC (DeLong): {r['estimate']:+.4f} [{r['ci_lo']:+.4f}, {r['ci_hi']:+.4f}], p = {r['p']:.1e}")
+        mt = csv("rigor_multiple_testing.csv")
+        if mt is not None:
+            out.append(f"- Multiple testing over {len(mt)} gap tests: {int(mt.sig_raw.sum())} significant at 0.05 raw, {int(mt.sig_bh.sum())} after Benjamini-Hochberg, {int(mt.sig_holm.sum())} after Holm")
+        lh = csv("rigor_lender_holdout.csv")
+        if lh is not None:
+            for _, r in lh[lh.split.str.startswith("lender")].iterrows():
+                out.append(f"- Unseen-lender split ({int(r['n_test_lenders'])} lenders held out), {r['model'].replace('_', ' ')}: AUC {r['auc']:.3f}")
+        hd = csv("hardening.csv")
+        if hd is not None:
+            for _, r in hd.iterrows():
+                out.append(f"- LightGBM {r['variant']}: AUC {r['auc']:.3f}; decisions flipped by +/-5 % income / appraisal error {100 * r['flip_realistic_5pct']:.1f} %; denials flipped by income +10 % {100 * r['gaming_income_plus10_dti_fixed']:.1f} %")
+        ad = csv("adv_debias.csv")
+        if ad is not None:
+            for _, r in ad[ad.alpha.isin([0, 2])].iterrows():
+                out.append(f"- Adversarial debiasing alpha = {r['alpha']:g}: AUC {r['auc']:.3f}, adversary AUC {r['adversary_auc_test']:.3f}, Black gap {100 * r['Black_sel_gap']:+.1f} pp, Hispanic gap {100 * r['Hispanic_sel_gap']:+.1f} pp, Hispanic TPR gap {100 * r['Hispanic_tpr_gap']:+.1f} pp")
+        lm = csv("xai_lime_summary.csv")
+        if lm is not None:
+            v = lm.set_index("metric")["mean"]
+            out.append(f"- SHAP vs LIME on 100 denials: same principal reason {100 * v['same_principal_driver']:.0f} %, top-3 overlap {v['top3_overlap_shap_lime']:.2f}; LIME seed-to-seed top-3 overlap {v['top3_overlap_lime_seed_a_b']:.2f}")
+        rc = csv("recourse_by_group.csv")
+        if rc is not None:
+            for _, r in rc[rc.group.str.startswith("GAP")].iterrows():
+                out.append(f"- Recourse {r['model'].replace('_', ' ')}, {r['group'][4:]}: cost gap {r['mean_cost_if_feasible']:+.2f} [{r['cost_gap_ci_lo']:+.2f}, {r['cost_gap_ci_hi']:+.2f}] effort units")
+        return "\n".join(out) if out else "_run the week-14 stages_"
 
     leaks = audit[audit["deterministic"]] if audit is not None else None
     leak_lines = "\n".join(f"- `{r['field']}` = {r['category']}: {int(r['n']):,} rows, approval rate {100 * r['approval_rate']:.0f} % ({r['status']})" for _, r in leaks.iterrows()) if leaks is not None else ""
@@ -168,6 +208,9 @@ Black vs White selection-rate gap on the {YD} cohort with the frozen LightGBM mo
 
 ### Privacy
 {privacy_lines()}
+
+### Additional evaluations (rigor, in-processing, hardening, explanation agreement, recourse)
+{extra_lines()}
 
 ## Ethical considerations
 {todo('discuss the label-as-historical-decision problem, proxy discrimination through geography, the ECOA/Reg B constraint on using protected class at decision time, and the small-group power limits')}

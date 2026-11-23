@@ -4,9 +4,9 @@ PY ?= python3
 YEAR_TRAIN ?= 2024
 YEAR_DRIFT ?= 2025
 
-.PHONY: all setup download prepare audit baselines drift dp ablations explain robustness privacy extras docs figures dashboard smoke clean
+.PHONY: all setup download prepare audit baselines drift dp ablations explain robustness privacy extras rigor human_ai recourse hardening advdebias lime risk docs figures dashboard smoke clean
 
-all: prepare audit baselines drift dp ablations explain robustness privacy extras docs
+all: prepare audit baselines drift dp ablations explain robustness privacy extras rigor human_ai recourse hardening advdebias lime risk docs
 	@echo "all results written to results/"
 
 setup:
@@ -45,6 +45,27 @@ privacy:                       ## membership-inference probes, DP grid over seed
 
 extras:                        ## Reg. B reason coverage of denials + how well the inputs recover race (proxy check)
 	$(PY) src/extras.py
+
+rigor:                         ## 10 split seeds, DeLong, Holm/BH correction, unseen-lender split, duplicates, data manifest
+	$(PY) src/rigor.py
+
+human_ai:                      ## calibration by group + abstain-to-human routing (selective prediction)
+	$(PY) src/human_ai.py
+
+recourse:                      ## cheapest actionable change that flips each denial, by group (recourse gap)
+	$(PY) src/recourse.py
+
+hardening:                     ## monotone / regularised / noise-augmented LightGBM vs realistic input errors and gaming
+	$(PY) src/hardening.py
+
+advdebias:                     ## in-processing adversarial debiasing (Zhang et al. 2018), NumPy
+	$(PY) src/adv_debias.py
+
+lime:                          ## LIME vs SHAP agreement on the same denied applicants
+	$(PY) src/xai_lime.py
+
+risk:                          ## measured risk register (R1-R11) with MITRE ATLAS / NIST AI RMF mapping
+	$(PY) src/risk_register.py
 
 docs:                          ## model card and datasheet from results/
 	$(PY) src/make_docs.py

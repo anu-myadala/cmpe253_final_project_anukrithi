@@ -155,7 +155,7 @@ def main():
                       "hispanic_gap_mean": ps["hispanic_gap"].mean(), "hispanic_gap_sd": ps["hispanic_gap"].std(ddof=1), "selection_rate_mean": ps["selection_rate"].mean()})
         print(f"eps {eps:>4}: AUC {rows[-1]['auc_mean']:.4f} +- {rows[-1]['auc_sd']:.4f}  acc {rows[-1]['accuracy_mean']:.4f}  MI {rows[-1]['mi_attack_auc_mean']:.4f}  "
               f"Black-White gap {frows[-1]['black_white_gap_mean']:+.4f} +- {frows[-1]['black_white_gap_sd']:.4f}  Hispanic gap {frows[-1]['hispanic_gap_mean']:+.4f}")
-    grid = pd.DataFrame(rows); grid.to_csv(RESULTS / "privacy_dp_grid.csv", index=False, float_format="%.4f")
+    grid = pd.DataFrame(rows); grid.to_csv(RESULTS / "privacy_dp_grid.csv", index=False, float_format="%.6g")
     fair = pd.DataFrame(frows); fair.to_csv(RESULTS / "privacy_dp_fairness.csv", index=False, float_format="%.4f")
     log["timings"]["dp_grid"] = round(time.time() - t1, 1); log["dp"] = {"clip_norm": clip, "lr": lr, "delta": delta, "steps": steps, "q": q}
 

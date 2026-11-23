@@ -12,3 +12,4 @@ fairlearn==0.15.0
 shap==0.54.1
 streamlit==1.65.0
 altair==6.3.0
+lime==0.2.0.1

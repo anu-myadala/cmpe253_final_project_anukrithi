@@ -1,5 +1,6 @@
 # raw HMDA downloads and cleaned parquet files are re-created by `make download prepare`
 data/
+data
 # run logs
 results/*.log
 .venv/
