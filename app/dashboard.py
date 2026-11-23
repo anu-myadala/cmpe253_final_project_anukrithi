@@ -2,9 +2,6 @@
 optional what-if scorer, which fits the two baselines once and caches them).
 
 Run:  streamlit run app/dashboard.py          (or: make dashboard)
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import sys
 from pathlib import Path

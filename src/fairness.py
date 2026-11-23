@@ -3,9 +3,6 @@
 fairness_metrics(tp, fp, tn, fn) -> selection_rate, tpr, fpr, precision
 group_report(y, yhat, g, reference)   -> per-group metrics, gaps vs. the reference group,
                                           two-proportion z-tests and bootstrap 95 % CIs
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import numpy as np
 import pandas as pd

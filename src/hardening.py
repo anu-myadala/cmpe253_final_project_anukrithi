@@ -19,9 +19,6 @@ the decision. Two things are fixed here:
 Outputs: results/hardening.csv, results/hardening.png
 
 Run:  python src/hardening.py
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import lightgbm as lgb
 import matplotlib

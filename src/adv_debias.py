@@ -16,9 +16,6 @@ test split (0.5 = the scores carry no information about z beyond y).
 Outputs: results/adv_debias.csv, results/adv_debias.png
 
 Run:  python src/adv_debias.py
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import matplotlib
 matplotlib.use("Agg")

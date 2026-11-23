@@ -13,9 +13,6 @@ Outputs: results/reason_coverage.csv, results/reason_coverage_drivers.csv,
          results/proxy_recoverability.csv
 
 Run:  python src/extras.py
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import numpy as np
 import pandas as pd

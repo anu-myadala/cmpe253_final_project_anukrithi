@@ -24,9 +24,6 @@ Outputs (results/): robustness_noise.csv, robustness_noise_by_input.csv, robustn
   robustness_ood_inputs.csv, robustness_pgd.csv, robustness_gaming.csv, robustness_noise.png,
   run_log_robustness.json
 Run:  python src/robustness.py
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import json
 import time

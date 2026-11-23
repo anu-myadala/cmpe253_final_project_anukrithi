@@ -7,9 +7,6 @@ No login is needed. The API builds the file on request, so a state-wide query ca
 
 Run:  python src/download_hmda.py            (both years in config.yaml)
       python src/download_hmda.py --years 2024
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import argparse
 import subprocess

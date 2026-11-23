@@ -21,9 +21,6 @@ Outputs (results/): privacy_mi.csv, privacy_dp_grid.csv, privacy_dp_fairness.csv
   privacy_dp.png, run_log_privacy.json
 Run:  python src/privacy.py        (expects results/dp_pilot.csv for the tuned clip norm / learning rate;
                                     runs the validation tuning itself when the file is missing)
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import json
 import time

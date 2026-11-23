@@ -4,8 +4,6 @@ It exists so the pipeline can be exercised end to end before the real download i
 The numbers it produces mean nothing about real lending and must never appear in the report.
 
 Run:  python src/make_fixture.py --year 2024 --n 20000
-
-Help received: Claude (Anthropic AI assistant) drafted this script; Anukrithi Myadala reviewed it.
 """
 import argparse
 from pathlib import Path

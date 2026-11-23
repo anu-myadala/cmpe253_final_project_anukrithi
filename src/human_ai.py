@@ -12,9 +12,6 @@ Outputs: results/human_ai_calibration.csv, results/human_ai_routing.csv,
          results/human_ai_reliability.png, results/human_ai_routing.png
 
 Run:  python src/human_ai.py
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import matplotlib
 matplotlib.use("Agg")

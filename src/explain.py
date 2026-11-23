@@ -22,9 +22,6 @@ Outputs (results/): explain_global_<model>.csv, explain_global.png, explain_loca
   explain_stability.csv, explain_faithfulness.csv, explain_sanity.csv, explain_gap_decomposition.csv,
   explain_gap_decomposition.png, run_log_explain.json
 Run:  python src/explain.py
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import json
 import time

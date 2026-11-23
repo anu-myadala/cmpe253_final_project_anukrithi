@@ -3,9 +3,6 @@ them is the number the pipeline produced. Factual fields are filled automaticall
 fields are left as [TODO] markers for the author to write (they are hers, not the pipeline's).
 
 Run:  python src/make_docs.py          (after `make all`)
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import json
 import time

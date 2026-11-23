@@ -7,9 +7,6 @@ fairness gaps by race and ethnicity. PSI bins are the 2024 deciles; PSI < 0.10 i
 "stable" cut-off, 0.10-0.25 "monitor", > 0.25 "shifted".
 
 Run:  python src/drift_check.py
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import json
 from pathlib import Path

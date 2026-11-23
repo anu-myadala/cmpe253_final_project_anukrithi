@@ -15,9 +15,6 @@ Outputs (results/):
 
 Run:  python src/baselines.py                       (uses years.train_test from config.yaml)
       python src/baselines.py --year 2024 --tag synthetic
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import argparse
 import json

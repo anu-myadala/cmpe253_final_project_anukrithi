@@ -9,9 +9,6 @@ Steps (each one is logged as a row-count funnel so the report can show it):
 
 Run:  python src/prepare.py --year 2024
       python src/prepare.py --year 2024 --raw data/raw/SYNTHETIC_fixture_2024.csv   (smoke test)
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import argparse
 from pathlib import Path

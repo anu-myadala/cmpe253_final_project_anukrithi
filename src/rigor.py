@@ -17,9 +17,6 @@ Outputs: results/rigor_repeated_splits.csv, rigor_repeated_summary.csv, rigor_de
          results/manifest.json
 
 Run:  python src/rigor.py
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import glob
 import hashlib

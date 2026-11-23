@@ -33,9 +33,6 @@ Outputs (results/):
   ablation_gaps.png                     Black-White selection-rate and TPR gaps with CIs per variant
 Run:  python src/ablations.py                 (group attribute from config: ablations.group_attr)
       python src/ablations.py --group-attr derived_ethnicity
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import argparse
 import json

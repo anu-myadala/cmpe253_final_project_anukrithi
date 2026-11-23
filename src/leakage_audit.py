@@ -14,9 +14,6 @@ inside the originated/denied cohort code 1 is 100 % originated). Both are now in
 
 Outputs (results/): leakage_audit_<year>.csv ; exit code 1 when an active input fails
 Run:  python src/leakage_audit.py --year 2024
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import argparse
 import sys

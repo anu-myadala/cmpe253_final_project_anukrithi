@@ -11,9 +11,6 @@ Outputs (results/):
 The clipping norm and learning rate are chosen on the validation split without noise (the tuning
 itself is not privatised — a known simplification, noted in the report).
 Run:  python src/dp_pilot.py                      (grid from config.yaml: dp.epsilons)
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import json
 import time

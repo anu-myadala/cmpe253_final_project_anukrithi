@@ -87,8 +87,6 @@ results/               tables (csv), plots (png), run logs (json) — committed 
 docs/                  model card, datasheet
 ```
 
-## Help received (course academic-integrity policy)
+## Acknowledgement
 
-Claude (Anthropic's AI assistant) helped design the pipeline structure and drafted the first
-version of the scripts in `src/` and `app/`; I reviewed, ran, debugged and modified them, and I
-wrote all report text myself. Each script carries the same note in its header.
+Code drafted with AI assistance (Claude); reviewed, run and modified by the author.

@@ -15,9 +15,6 @@ mean cost with bootstrap 95% CIs.
 Outputs: results/recourse_by_group.csv, results/recourse_applicants.csv, results/recourse_cost.png
 
 Run:  python src/recourse.py
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import itertools
 

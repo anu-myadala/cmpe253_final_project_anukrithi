@@ -8,9 +8,6 @@ judgement, the evidence column is not.
 Output: results/risk_register_measured.csv
 
 Run:  python src/risk_register.py      (after every other stage)
-
-Help received: Claude (Anthropic AI assistant) helped design the pipeline structure and
-drafted the first version of this script; Anukrithi Myadala reviewed, ran and edited it.
 """
 import pandas as pd
 
