@@ -1,0 +1,18 @@
+{
+  "data_sha256": {
+    "hmda_CA_2024_purchase_orig_denied.csv": "e79a2b2d141d3bea7761b7b64037a4dce0225d78c7065d2854ec4cc0f0e68d40",
+    "hmda_CA_2025_purchase_orig_denied.csv": "a4182e84040c8af6e34aa29ef5d27fbf15f328534270682c0053e45a0dd144a4",
+    "cohort_2024.parquet": "9d3716ac852fdc7d858786355f5bf42b375a556c3938af05f3c4ba2cef7507d6",
+    "cohort_2025.parquet": "4fec5cee65cc4c947c5885a5d3aefda6b53515a4fb31442d766fe3e270d83329"
+  },
+  "config_sha256": "7174eff229f93daa92f8340f4243114fe8b5bdbe8f5e1feffedb3540d6020399",
+  "seed": 42,
+  "versions": {
+    "python": "3.13.17",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "scikit-learn": "1.8.0",
+    "lightgbm": "4.7.0",
+    "scipy": "1.17.1"
+  }
+}

@@ -1,0 +1,5 @@
+model,auc,balanced_accuracy,selection_rate,Black_sel_gap,Black_tpr_gap,Asian_sel_gap,Asian_tpr_gap,Hispanic_sel_gap,Hispanic_tpr_gap,Female_sel_gap,Female_tpr_gap,split,n_test,n_test_lenders,share_test_lenders_seen_in_train
+logistic_regression,0.74757,0.69173,0.89227,-0.03015,-0.01191,-0.06118,-0.05686,0.02064,0.03067,0.03246,0.02592,lender holdout (unseen LEIs),13989,129,0.00000
+lightgbm,0.78109,0.70804,0.88570,-0.03436,-0.01503,-0.06573,-0.06461,0.01694,0.02905,0.01728,0.00991,lender holdout (unseen LEIs),13989,129,0.00000
+logistic_regression,0.77746,0.70733,0.91400,-0.02401,-0.00462,-0.00563,-0.00383,-0.02846,-0.01568,0.01081,0.00290,random (main),34931,497,0.99920
+lightgbm,0.80328,0.73131,0.91254,-0.04561,-0.01905,0.02347,0.02434,-0.05395,-0.03894,0.01354,0.00934,random (main),34931,497,0.99920

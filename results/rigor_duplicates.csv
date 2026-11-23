@@ -1,0 +1,3 @@
+check,count,share
+exact duplicate rows (model inputs + label) in the 2024 cohort,855,0.004895
+test rows whose inputs + label also appear in train,212,0.006069

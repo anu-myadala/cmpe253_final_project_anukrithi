@@ -1,0 +1,5 @@
+comparison,estimate,ci_lo,ci_hi,z,p
+AUC logistic_regression,0.777459,0.76713,0.787788,,
+AUC lightgbm,0.803277,0.793567,0.812986,,
+AUC lightgbm - logistic_regression (DeLong),0.0258174,0.0190706,0.0325641,7.50018,6.37268e-14
+"AUC lightgbm - logistic_regression (10 split seeds, paired t)",0.0202053,0.0172681,0.0231426,15.5613,8.19618e-08

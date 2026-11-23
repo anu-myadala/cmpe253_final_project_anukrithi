@@ -1,0 +1,17 @@
+model,group,n,mean_predicted,observed_approval,ece_raw,ece_isotonic,calibration_in_the_large_raw
+logistic_regression,all,34931,0.9140,0.9141,0.0019,0.0021,-0.0001
+logistic_regression,White,15936,0.9131,0.9157,0.0029,0.0032,-0.0026
+logistic_regression,Black,810,0.8912,0.8617,0.0387,0.0407,0.0295
+logistic_regression,Asian,8750,0.9169,0.9203,0.0089,0.0099,-0.0035
+logistic_regression,Hispanic,5985,0.8966,0.8926,0.0106,0.0102,0.0041
+logistic_regression,Not Hispanic,21001,0.9187,0.9211,0.0034,0.0034,-0.0023
+logistic_regression,Female,6760,0.9075,0.9095,0.0060,0.0054,-0.0020
+logistic_regression,Male,10695,0.9016,0.9019,0.0043,0.0031,-0.0003
+lightgbm,all,34931,0.9156,0.9141,0.0060,0.0013,0.0015
+lightgbm,White,15936,0.9129,0.9157,0.0064,0.0049,-0.0028
+lightgbm,Black,810,0.8900,0.8617,0.0320,0.0352,0.0283
+lightgbm,Asian,8750,0.9225,0.9203,0.0040,0.0048,0.0022
+lightgbm,Hispanic,5985,0.8939,0.8926,0.0082,0.0073,0.0013
+lightgbm,Not Hispanic,21001,0.9221,0.9211,0.0057,0.0016,0.0010
+lightgbm,Female,6760,0.9093,0.9095,0.0034,0.0044,-0.0002
+lightgbm,Male,10695,0.9034,0.9019,0.0097,0.0047,0.0014

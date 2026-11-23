@@ -5,12 +5,12 @@
     "lightgbm": 0.8576295922049152
   },
   "timings": {
-    "noise": 20.0,
-    "ood": 6.9,
-    "pgd": 0.3,
-    "gaming": 0.8
+    "noise": 21.5,
+    "ood": 7.6,
+    "pgd": 0.4,
+    "gaming": 0.9
   },
   "domain_auc": 0.5877545335491495,
-  "wall_seconds": 33.6,
-  "finished": "2026-11-21 01:30:09"
+  "wall_seconds": 35.4,
+  "finished": "2026-11-22 18:30:21"
 }

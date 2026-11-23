@@ -1,0 +1,6 @@
+metric,mean,sd
+same_principal_driver,0.3000,0.4606
+top3_overlap_shap_lime,0.4500,0.2190
+spearman_shap_lime,0.4044,0.2987
+top3_overlap_lime_seed_a_b,0.7467,0.1716
+n_applicants,100.0000,

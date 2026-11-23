@@ -1,0 +1,19 @@
+model,group,n_denied,feasible_share,mean_cost_if_feasible,median_cost_if_feasible,cost_gap_ci_lo,cost_gap_ci_hi
+logistic_regression,White,1329,0.7028,2.0519,1.5000,,
+logistic_regression,Black,87,0.7011,2.1393,1.5000,,
+logistic_regression,Asian,779,0.6200,2.0807,1.5000,,
+logistic_regression,Hispanic,648,0.6975,1.9989,1.5000,,
+logistic_regression,Not Hispanic,1676,0.6629,2.0981,1.5000,,
+logistic_regression,Female,662,0.6088,2.0037,1.5000,,
+logistic_regression,Male,1163,0.6303,2.0402,1.5000,,
+logistic_regression,GAP Black - White,1416,-0.0016,0.0874,,-0.1218,0.3136
+logistic_regression,GAP Hispanic - Not Hispanic,2324,0.0346,-0.0992,,-0.2053,0.0043
+lightgbm,White,1516,0.8786,1.8634,1.5000,,
+lightgbm,Black,114,0.8772,1.7050,1.5000,,
+lightgbm,Asian,627,0.8676,1.8998,1.5000,,
+lightgbm,Hispanic,778,0.8740,1.9346,1.5000,,
+lightgbm,Not Hispanic,1597,0.8773,1.8462,1.5000,,
+lightgbm,Female,624,0.8365,1.7826,1.5000,,
+lightgbm,Male,1132,0.8657,1.9117,1.5000,,
+lightgbm,GAP Black - White,1630,-0.0014,-0.1584,,-0.3560,0.0387
+lightgbm,GAP Hispanic - Not Hispanic,2375,-0.0032,0.0884,,-0.0164,0.1971

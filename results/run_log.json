@@ -200,7 +200,7 @@
   },
   "fit_seconds": {
     "logistic_regression": 0.7,
-    "lightgbm": 2.9
+    "lightgbm": 2.6
   },
   "versions": {
     "python": "3.13.17",
@@ -209,6 +209,6 @@
     "scikit-learn": "1.8.0",
     "lightgbm": "4.7.0"
   },
-  "wall_seconds": 17.8,
-  "finished": "2026-11-21 01:19:12"
+  "wall_seconds": 16.8,
+  "finished": "2026-11-22 18:19:06"
 }
